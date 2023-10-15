@@ -7,17 +7,15 @@ class Imagenes(models.Model):
 class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     foto_perfil = models.ForeignKey(Imagenes, on_delete=models.CASCADE)
-    apellido_P = models.CharField(max_length=30)
-    apellido_M = models.CharField(max_length=30)
     numero_clave = models.IntegerField() #Este es el numero secreto para encriptar cosas
     Clabe = models.CharField(max_length=34)
     cuenta_bancaria = models.CharField(max_length=16)
+    #__str__(self): #Este metodo solo es en caso de que querramos acceder a toda la informacion desde el shell
+        #return 'User: %s \nFoto Perfil %s \napellido_P: %s'%(self.user.username, self.foto_perfil, self.apellido_P)
 
 class Vendedor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     foto_perfil = models.ForeignKey(Imagenes, on_delete=models.CASCADE)
-    apellido_P = models.CharField(max_length=30)
-    apellido_M = models.CharField(max_length=30)
     numero_clave = models.IntegerField() #Este es el numero secreto para encriptar cosas
     Clabe = models.CharField(max_length=34)
     cuenta_bancaria = models.CharField(max_length=16)
