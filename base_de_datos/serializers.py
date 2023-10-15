@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import *
+from .models import *
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,7 +15,10 @@ class VendedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vendedor
         fields = '__all__'
-
+class ClienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
+        fields = '__all__'
 class CarritoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Carrito
@@ -64,7 +67,7 @@ class Imagenes_ProductosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Imagenes_Productos
         fields = '__all__'
-class Pedidos(serializers.ModelSerializer):
+class PedidosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedidos
         fields = '__all__'
@@ -80,4 +83,3 @@ class Mensajes_Enviados_ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mensajes_Enviados_Cliente
         fields = '__all__'
-        
