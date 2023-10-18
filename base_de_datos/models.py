@@ -22,6 +22,9 @@ class Vendedor(models.Model):
     paypal = models.CharField(max_length=2083)
     disponibilidad = models.BooleanField()
     estrellas_prom = models.FloatField()
+class Seguidores(models.Model):
+    id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    id_vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
 
 class Carrito(models.Model):
     No_Articulos = models.IntegerField()

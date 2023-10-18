@@ -15,6 +15,10 @@ class VendedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vendedor
         fields = '__all__'
+class SeguidoresSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Seguidores
+        fields = '__all__'
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente

@@ -17,6 +17,10 @@ class VendedorViewSet(viewsets.ModelViewSet):
     queryset = Vendedor.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = VendedorSerializer
+class SeguidoresViewSet(viewsets.ModelViewSet):
+    queryset = Seguidores.objects.all()
+    permission_classes = [permissions.AllowAny]
+    serializer_class = SeguidoresSerializer
 class CarritoViewSet(viewsets.ModelViewSet):
     queryset = Carrito.objects.all()
     permission_classes = [permissions.AllowAny]

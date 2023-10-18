@@ -22,5 +22,6 @@ router.register('api/pedidos', PedidosViewSet, 'pedidos')
 router.register('api/chat', ChatViewSet, 'chat')
 router.register('api/mensajes_enviados_vendedor', Mensajes_Enviados_VendedorViewSet, 'Mensajes_Enviados_Vendedor')
 router.register('api/mensajes_enviados_cliene', Mensajes_Enviados_ClienteViewSet, 'Mensajes_Enviados_ClienteViewSet')
+router.register('api/seguidores', SeguidoresViewSet, 'Seguidores')
 
 urlpatterns = router.urls
