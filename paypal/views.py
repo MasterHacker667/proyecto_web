@@ -6,7 +6,7 @@ import requests
 from django.conf import settings
 import stripe
 from django.views.decorators.csrf import csrf_exempt
-
+#Jugando
 @csrf_exempt
 def pago_stripe(request):#Esta funcion debe recibir por post el id_user del cliente y el id_user del vendedor
     try:
