@@ -24,18 +24,20 @@ def obtener_vendedor(request, id_user):
 
 def obtener_cliente_datos_bancarios(request, id_cliente): #Usuario que es cliente
     try:
-        usuario = User.objects.get(id=id_cliente)
+        usuarios = User.objects.get(id=id_cliente)
 
         clientes = Cliente.objects.all()
-        cliente = None    
+        cliente = None
         for i in clientes:
-            if i.user.id== id_cliente:
+            if i.user.id == id_cliente:
                 cliente = i
-                break
+        
         return JsonResponse({
             "message":"exito",
             "status":True,
-            "cliente":cliente
+            "numero de cuenta": cliente.cuenta_bancaria,
+            "exp month": cliente.exp_month,
+            "exp year" : cliente.exp_year
         })
     except User.DoesNotExist:
         return JsonResponse({
