@@ -10,6 +10,8 @@ class Cliente(models.Model):
     numero_clave = models.IntegerField() #Este es el numero secreto para encriptar cosas
     Clabe = models.CharField(max_length=34)
     cuenta_bancaria = models.CharField(max_length=16)
+    exp_month = models.CharField(max_length=2)
+    exp_year = models.CharField(max_length=2)
     #__str__(self): #Este metodo solo es en caso de que querramos acceder a toda la informacion desde el shell
         #return 'User: %s \nFoto Perfil %s \napellido_P: %s'%(self.user.username, self.foto_perfil, self.apellido_P)
 
@@ -19,9 +21,16 @@ class Vendedor(models.Model):
     numero_clave = models.IntegerField() #Este es el numero secreto para encriptar cosas
     Clabe = models.CharField(max_length=34)
     cuenta_bancaria = models.CharField(max_length=16)
-    paypal = models.CharField(max_length=2083)
+    exp_month = models.CharField(max_length=2)
+    exp_year = models.CharField(max_length=2)
+    cvc = models.CharField(max_length=3)
+    client_id_paypal = models.CharField(max_length=2000)
+    client_secret_paypal = models.CharField(max_length=2000)
+    stripe_secret_key = models.CharField(max_length=1000)
+    stripe_publishable_key = models.CharField(max_length=1000)
     disponibilidad = models.BooleanField()
     estrellas_prom = models.FloatField()
+
 class Seguidores(models.Model):
     id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     id_vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)

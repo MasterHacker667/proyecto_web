@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Vendedor, User
+from .models import Vendedor, User, Cliente
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 #Obtener un vendedor por id:
@@ -21,3 +21,24 @@ def obtener_vendedor(request, id_user):
         return JsonResponse(vendedor)
     except User.DoesNotExist:
         return JsonResponse({"error":"El usuario no existe"})
+
+def obtener_cliente_datos_bancarios(request, id_cliente): #Usuario que es cliente
+    try:
+        usuario = User.objects.get(id=id_cliente)
+
+        clientes = Cliente.objects.all()
+        cliente = None    
+        for i in clientes:
+            if i.user.id== id_cliente:
+                cliente = i
+                break
+        return JsonResponse({
+            "message":"exito",
+            "status":True,
+            "cliente":cliente
+        })
+    except User.DoesNotExist:
+        return JsonResponse({
+            "message":"No existe el usuario \nError de seguridad",
+            "status":False
+        })

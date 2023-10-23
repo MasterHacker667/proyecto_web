@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'dealer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tienda_online2',
+        'NAME': 'tienda_online5',
         'USER': 'masterhacker',
         'PASSWORD': 'olakase123',
         'HOST': 'localhost',  # Puedes cambiarlo según tu configuración.
