@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 class ImagenesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Cliente
+        model = Imagenes
         fields = '__all__'
 class VendedorSerializer(serializers.ModelSerializer):
     class Meta:
