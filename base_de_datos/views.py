@@ -3,6 +3,8 @@ from .models import Vendedor, User, Cliente
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 import requests
+from django.core import serializers
+
 #Obtener un vendedor por id:
 def obtener_vendedor(request, id_user):
     try:
