@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from loggear import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('loguser/', views.loggearse, name = "loggearse")
+    path('loguser/', views.loggearse, name = "loggearse"),
+    path('signup/', views.comprobar_existencia, name = "signup")
 ]

@@ -6,6 +6,20 @@ import requests
 import random
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
+def comprobar_existencia(request):
+    data = json.loads(request.body)
+    datos_usuario = data.get("username")
+    datos_password = data.get("password")
+    envio2 = {
+        "username" : datos_usuario,
+        "password" : datos_password
+    }
+    response = requests.post("http://localhost:8000/auth_user/", json=envio2)
+    return JsonResponse(response.json())
+
+
+
+@csrf_exempt
 def loggearse(request):
     data_body = json.loads(request.body)
     data_usuario = {
