@@ -7,5 +7,6 @@ urlpatterns = [
     path('', include('base_de_datos.urls')),
     #Vistas
     path('vendedor/id_user/<int:id_user>/', views.obtener_vendedor, name="obtener_vendedor_id_user"),
-    path('cliente/id_cliente/<int:id_cliente>', views.obtener_cliente_datos_bancarios, name="Obtener_datos_bancarios")
+    path('cliente/id_cliente/<int:id_cliente>', views.obtener_cliente_datos_bancarios, name="Obtener_datos_bancarios"),
+    path('auth_user/', views.autenticar_usuario, name="auth_user")
 ]

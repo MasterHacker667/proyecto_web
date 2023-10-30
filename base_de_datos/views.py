@@ -5,6 +5,11 @@ from django.forms.models import model_to_dict
 import requests
 from django.core import serializers
 
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+import json
+
 #Obtener un vendedor por id:
 def obtener_vendedor(request, id_user):
     try:
@@ -47,4 +52,40 @@ def obtener_cliente_datos_bancarios(request, id_cliente): #Usuario que es client
             "message":"No existe el usuario \nError de seguridad",
             "status":False
         })
-    
+@csrf_exempt
+def autenticar_usuario(request):
+    try:
+        data = json.loads(request.body)
+        username = data.get("username")
+        password = data.get("password")
+        user = User.objects.filter(username=username).first()
+        if user is not None:
+            authenticated_user = authenticate(request, username=username, password=password)
+            if authenticated_user is not None:
+                return JsonResponse({
+                       'message': 'Usuario autenticado en Dealer',
+                       'status': True,
+                   })
+            else:
+                return JsonResponse({
+                       'message': 'Usuario p contraseña incorrectos',
+                       'status': False,
+                   })
+        else:
+            return JsonResponse({
+                       'message': 'Usuario o contraseña incorrectos',
+                       'status': False,
+                   })
+    except json.JSONDecodeError:
+            # Error en el formato JSON
+            return JsonResponse({
+                'message': 'Error en el formato JSON',
+                'status': False,
+            })
+
+    except Exception as e:
+            # Manejo de otras excepciones
+        return JsonResponse({
+            'message': 'Error interno del servidor: {}'.format(str(e)),
+            'status': False,
+        })
