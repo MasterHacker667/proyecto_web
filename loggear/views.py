@@ -24,6 +24,8 @@ def comprobar_existencia(request):
 def loggearse(request):
     data_body = json.loads(request.body)
     password1 = make_password(data_body["password"])
+    insercionC = False
+    insercionV = False
     data_usuario = {
         "password": password1,
         "is_superuser": data_body["is_superuser"],
@@ -51,13 +53,14 @@ def loggearse(request):
             "foto_perfil": 1
         }
         response_cliente = requests.post("http://localhost:8000/api/clientes/", json= data_cliente)
+        insercionC = True
     else:
         data_ultimo_user = requests.get("http://localhost:8000/api/user/")
         data_ultimo_user1 = data_ultimo_user.json()
         ultimo_usuario = data_ultimo_user1[-1]
         ultimo_usuario_id = ultimo_usuario.get("id")
         data_vendedor = {
-            "user_id" : ultimo_usuario_id,
+            "user" : ultimo_usuario_id,
             "numero_clave" : data_body["numero_clave"],
             "Clabe": data_body["Clabe"],
             "cuenta_bancaria": data_body["cuenta_bancaria"],
@@ -70,10 +73,13 @@ def loggearse(request):
             "stripe_publishable_key" : data_body["stripe_publishable_key"],
             "disponibilidad" : False,
             "estrellas_prom" : data_body["estrellas_prom"],
-            "foto_perfil_id" : 1,
+            "foto_perfil" : 1,
         }
+        response_vendedor = requests.post("http://localhost:8000/api/vendedor/", json= data_vendedor)
+        insercionV = True
     return JsonResponse({
         "message" : "Logrado",
         "user" : ultimo_usuario_id,
-        "status" : True
+        "status" : True,
+        "[Cliente, Vendedor]" : [insercionC, insercionV]
     })
