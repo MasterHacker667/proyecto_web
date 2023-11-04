@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.contrib.auth.hashers import make_password
 from django.views import View
 import json
 import requests
@@ -22,8 +23,9 @@ def comprobar_existencia(request):
 @csrf_exempt
 def loggearse(request):
     data_body = json.loads(request.body)
+    password1 = make_password(data_body["password"])
     data_usuario = {
-        "password": data_body["password"],
+        "password": password1,
         "is_superuser": data_body["is_superuser"],
         "username": data_body["username"],
         "first_name": data_body["first_name"],
