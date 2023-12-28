@@ -3,12 +3,16 @@ from .models import Vendedor, User, Cliente
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 import requests
+from django.shortcuts import get_object_or_404
 from django.core import serializers
-
+from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 import json
+from .models import Clientes_Carritos, Productos_Carrito, Carrito
+from .serializers import CarritoSerializer
+from django.db import transaction
 
 #Obtener un vendedor por id:
 def obtener_vendedor(request, id_user):
@@ -130,3 +134,61 @@ def autenticar_usuario(request):
             'message': 'Error interno del servidor: {}'.format(str(e)),
             'status': False,
         })
+#@api_view(['DELETE'])
+def delete_cliente_carritos(request, record_id): #record_id es el id del carrito a eliminar, debemos obtener el ide de la relacion
+
+    try:
+        response = requests.get("http://localhost:8000/api/clientes_carritos/")
+        response = response.json()
+        id1 = 0
+        for i in response:
+            if i["id_carrito"] == record_id:
+                id1 = i["id"]
+        
+        obj = get_object_or_404(Clientes_Carritos, id=id1)
+
+        # Delete the object
+        obj.delete()
+
+        return JsonResponse({"message": "Record deleted successfully", "thing" : id1})
+    except Exception as e:
+         return JsonResponse({"message": str(e), "status" : False}, status=500)
+
+def delete_productos_carrito(request, record_id): #Este es el id del carrito a borrar
+    try:
+        response = requests.get("http://localhost:8000/api/producto_carrito/")
+        response = response.json()
+        id1 = []
+        for i in response:
+            if i["id_Carrito"] == record_id:
+                id1.append(i["id"])
+        for i in id1:
+            obj = get_object_or_404(Productos_Carrito, id=i)
+
+            # Delete the object
+            obj.delete()
+
+        return JsonResponse({"message": "Record deleted successfully", "things" : id1})
+    except Exception as e:
+         return JsonResponse({"message": str(e), "status" : False}, status=500)
+def delete_carrito(request, record_id):
+    try:
+        
+        obj = get_object_or_404(Carrito, id=record_id)
+
+        # Delete the object
+        obj.delete()
+
+        return JsonResponse({"message": "Record deleted successfully", "thing" : record_id})
+    except Exception as e:
+         return JsonResponse({"message": str(e), "status" : False}, status=500)
+
+@csrf_exempt
+@transaction.atomic
+def modificar_carrito(request):
+    data_body = json.loads(request.body.decode("utf-8"))
+    item = get_object_or_404(Carrito, id=data_body["id_carrito"])
+    item.precio_total = data_body["precio_n"]
+    item.save()
+    serializer = CarritoSerializer(item)
+    return JsonResponse(serializer.data, status=200)
