@@ -5,6 +5,7 @@ import { HeaderComponent } from './comun/header/header.component';
 import { FooterComponent } from './comun/footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductoService } from './servicios/producto.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ContentComponent, HttpClientModule], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [] 
+  providers: [ProductoService] 
 })
 export class AppComponent {
 
