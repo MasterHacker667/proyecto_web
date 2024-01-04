@@ -12,5 +12,7 @@ urlpatterns = [
     path('delete_clientes_carritos/<int:record_id>', views.delete_cliente_carritos),
     path('delete/delete_productos_carrito/<int:record_id>', views.delete_productos_carrito),
     path('delete/delete_carrito/<int:record_id>', views.delete_carrito),
-    path('update/carrito_precio/', views.modificar_carrito)
+    path('update/carrito_precio/', views.modificar_carrito),
+    path('delete/pedido/<int:record_id>', views.delete_pedido),
+    path('verUsers_id/', views.Usuario1)
 ]

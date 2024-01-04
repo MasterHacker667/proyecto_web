@@ -10,9 +10,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 import json
-from .models import Clientes_Carritos, Productos_Carrito, Carrito
+from .models import Clientes_Carritos, Productos_Carrito, Carrito, Pedidos, User
 from .serializers import CarritoSerializer
 from django.db import transaction
+from django.core.serializers import serialize
 
 #Obtener un vendedor por id:
 def obtener_vendedor(request, id_user):
@@ -192,3 +193,20 @@ def modificar_carrito(request):
     item.save()
     serializer = CarritoSerializer(item)
     return JsonResponse(serializer.data, status=200)
+def delete_pedido(request, record_id):
+    try:
+        obj = get_object_or_404(Pedidos, id = record_id)
+        obj.delete()
+        return JsonResponse({"message": "Record deleted successfully", "thing" : record_id})
+    except Exception as e:
+        return JsonResponse({"message": str(e), "status" : False}, status=500)
+
+@csrf_exempt  
+def Usuario1(request):
+    data_body = json.loads(request.body.decode("utf-8"))
+    registros_filtrados = User.objects.filter(id=data_body["id_user"])
+    registros_serializados = serialize('json', registros_filtrados)
+
+    # Convertir a una lista de diccionarios para JsonResponse
+    registros_json = json.loads(registros_serializados)
+    return JsonResponse(registros_json, safe=False)

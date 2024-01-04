@@ -39,9 +39,7 @@ class Carrito(models.Model):
     No_Articulos = models.IntegerField()
     precio_total = models.FloatField()
     nombre = models.CharField(max_length=50)
-
 class ComprasRealizadas(models.Model):
-    id_carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     id_vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=15)
@@ -58,7 +56,9 @@ class Productos(models.Model):
     color = models.CharField(max_length=15)
     precio = models.FloatField()
     tamano = models.CharField(max_length=15)
-
+class ComprasRealizadas_Productos(models.Model):
+    producto = models.ForeignKey(Productos, on_delete = models.CASCADE)
+    comprasRealizadas = models.ForeignKey(ComprasRealizadas, on_delete = models.CASCADE)
 class Producto_Vendedor(models.Model):
     id_Producto = models.ForeignKey(Productos, on_delete=models.CASCADE)
     id_Vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
