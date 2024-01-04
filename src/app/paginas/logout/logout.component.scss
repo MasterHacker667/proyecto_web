@@ -1,0 +1,17 @@
+p {
+    font-weight: 300;
+    font-size: 25px;
+    margin-top: 20px;
+}  
+  
+button{
+    padding: .5rem 2.5rem;
+    font-size: .95rem;
+    margin-top: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background: #111;
+    border-radius: 8px;
+    &:hover {background: lighten(#2f2f2f, 13%);}
+  }

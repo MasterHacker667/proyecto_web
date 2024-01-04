@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './barra-nav.component.scss'
 })
 export class BarraNavComponent {
-  menus : string[] = ["Principal","Ofertas","Más Vendidos","Inicia Sesión",""];
+  menus : string[] = ["Principal","Ofertas","Más Vendidos","Cerrar Sesión",""];
 }
 
 

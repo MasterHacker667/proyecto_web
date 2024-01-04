@@ -4,11 +4,12 @@ import { PrincipalComponent } from '../paginas/principal/principal.component';
 import { OfertasComponent } from '../paginas/ofertas/ofertas.component';
 import { MasVendidosComponent } from '../paginas/mas-vendidos/mas-vendidos.component';
 import { LoginComponent } from '../paginas/login/login.component';
+import { LogoutComponent } from '../paginas/logout/logout.component';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [RouterModule,PrincipalComponent,OfertasComponent,MasVendidosComponent,LoginComponent],
+  imports: [RouterModule,PrincipalComponent,OfertasComponent,MasVendidosComponent,LoginComponent,LogoutComponent],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })

@@ -1,52 +1,80 @@
-.login-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(45, 45, 45, 0.1);
-    position: relative;
-}
-
-p {
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.login-form {
+.login_container {
     display: flex;
-    flex-direction: column;
-}
-
-input {
-    padding: 4px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    color: #000000;
-    background-color: rgb(204, 204, 204);
-}
-
-button {
-    padding: 10px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    font-size: 20px;
+    flex-direction: row; 
+    align-items: center; 
+    width: 100%;
     margin-top: 20px;
-    border-radius: 3px;
-    cursor: pointer;
+  }
+
+  label {
+    font-size: .85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #656565;
+  }
+  .login {
+    background-color: #efefef;
+    padding: 36px;
+    width: 40%;
+    position: relative;
+    border-top-right-radius: 40px;
+    left: 150px;
+  }
+  @media only screen and (max-width: 770px) {
+    .login {
+      width: 100%;
+      position: relative;
+      left: auto;
+    }
+
+  }
+  .form-control {
+    position: relative;
+    left: 0px;
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-color: #b1b1b1;
+    border-left: 0;
+    color: #111;
+    border-radius: 0;
+    &:focus {border-color: #111;}
+  }
+  .form-control::placeholder {
+    color: rgb(167, 167, 167); /* Cambia "pink" al color que desees */
 }
 
-button:hover {
-    background-color: #131313;
-}
+  .btn{
+    padding: .5rem 2.5rem;
+    font-size: .95rem;
+    margin-top: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background: #111;
+    border-radius: 8px;
+    &:hover {background: lighten(#2f2f2f, 13%);}
+  }
+  .no-cuenta {
+    font-size: .8rem;
+    font-weight: 600;
+    font-size: 17px;
+    top: 20px;
+    position: relative;
+    color: #d2d2d2;
+    &:focus,
+    &:hover {color: darken(#999, 13%);}
+  }
 
-.no-cuenta {
-    text-align: center;
-}
+  @media only screen and (max-width: 770px) {
+    img {
+        display: none;
+    }
+  }
 
-.img-deco {
-    width: 120px;
-    height: 120px;
-    background-position: center;
-}
+  img {
+    float: left;
+    position: relative;
+    left: 150px;
+    width: 32%;
+  }
