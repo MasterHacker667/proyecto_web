@@ -12,12 +12,7 @@ export class MasVendidosComponent {
   public lista: DTO_Productoo[] = [];
   constructor(private pService: MasVendidosService){
     pService.GetProducts().subscribe(result => {
-        // console.log(result);
       this.lista = result.products;
-  
-      pService.PostProduct(this.lista[0]).subscribe(result => {
-        console.log(result);
-      });
     });
   }
 }

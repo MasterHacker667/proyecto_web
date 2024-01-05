@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 
 export class LogoutComponent {
   cerrarSesion() {
-    window.location.href = '/app-root';
+    window.location.href = '/login';
   }
 }
 

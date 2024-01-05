@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './barra-nav.component.html',
-  styleUrl: './barra-nav.component.scss'
+  styleUrl: './barra-nav.component.scss',
+  providers: [] 
 })
 export class BarraNavComponent {
   menus : string[] = ["Principal","Ofertas","Más Vendidos","Cerrar Sesión",""];

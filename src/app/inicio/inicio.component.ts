@@ -11,8 +11,11 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [HeaderComponent,ContentComponent,FooterComponent,HttpClientModule,CommonModule, RouterOutlet],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.scss'
+  styleUrl: './inicio.component.scss',
+  providers: [HttpClientModule] 
 })
-export class InicioComponent {
+export class InicioComponent{
 
 }
+
+

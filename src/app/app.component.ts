@@ -5,9 +5,7 @@ import { HeaderLogoutComponent } from './comun/header-logout/header-logout.compo
 import { FooterComponent } from './comun/footer/footer.component';
 import { ContentLogoutComponent } from './content-logout/content-logout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductoService } from './servicios/producto.service';
-import { OfertasService } from './servicios/ofertas.service';
-import { MasVendidosService } from './servicios/mas-vendidos.service';
+import { LoginService } from './servicios/login.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +17,7 @@ import { MasVendidosService } from './servicios/mas-vendidos.service';
     HttpClientModule], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [ProductoService,OfertasService,MasVendidosService] 
+  providers: [LoginService] 
 })
 export class AppComponent {
 

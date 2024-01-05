@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BarraNavComponent } from '../../barra-nav/barra-nav.component';
 
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,3 +12,5 @@ import { BarraNavComponent } from '../../barra-nav/barra-nav.component';
 export class HeaderComponent {
 
 }
+
+

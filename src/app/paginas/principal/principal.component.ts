@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductoService } from '../../servicios/producto.service';
 
-
-
 /*
 export class PrincipalComponent {
 
