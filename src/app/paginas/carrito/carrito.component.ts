@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CarritoService } from '../../servicios/carrito.service';
 import { ProductoService } from '../../servicios/producto.service';
+import { HeaderComponent } from '../../comun/header/header.component';
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.scss'
 })

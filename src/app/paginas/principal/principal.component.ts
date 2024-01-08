@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductoService } from '../../servicios/producto.service';
+import { HeaderComponent } from '../../comun/header/header.component';
 
 /*
 export class PrincipalComponent {
@@ -29,7 +30,7 @@ export interface Imagenes_Productos {
 @Component({
   selector: 'app-prinicipal',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss'
 })
@@ -44,6 +45,10 @@ export class PrincipalComponent {
         console.log(result);
       });
     });
+  }
+
+  agregarAlCarrito(lista:DTO_Producto){
+    console.log("agregado al carrito:" + lista.title);
   }
 }
 // ESTO SE VA A CAMBIAR POR EL DTO COMENTADO ABAJO, solo lo deje asi para ver que funcione

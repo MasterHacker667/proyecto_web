@@ -12,6 +12,10 @@ export class LogoutComponent {
   cerrarSesion() {
     window.location.href = '/login';
   }
+  volver() {
+    window.location.href = '/inicio';
+  }
+
 }
 
 

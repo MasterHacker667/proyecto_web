@@ -1,13 +1,22 @@
-<div>
+<app-header></app-header>
+<br>
+<h1>Carrito de Compras</h1>
+<br>
+<div class = "containerP">
     @for ( item of lista; track item.id) {
-    <div>
-        <p>{{ item.title }}</p>
-        <img src="{{item.thumbnail}}" alt="blog">
-        <p>Precio: {{ item.price}}</p>
-        <button class="btn" (click)="eliminarProducto(item.id)">Eliminar</button>
-    <br> <br> <br>
-    </div>
-    }
-
-    <button class="btn" (click)="paginaPago()">Pagar</button>
+        <div class="item">
+            <img src="{{item.thumbnail}}" class="item img" alt="blog"> <!--cambiar url por la de la imagen correspondiente en la bd -->
+            <div class = "info_producto">
+                <h3>{{item.title}} / Vendedor: Xuu</h3>
+                <p>Breve Descripcion</p>
+                <p class="precio">${{item.price}}.00</p>
+                    <button (click)="eliminarProducto(item.id)">Eliminar</button>
+                
+            </div>
+        </div>
+            }
 </div>
+<br>
+<button class="pago">Pagar</button>
+
+    

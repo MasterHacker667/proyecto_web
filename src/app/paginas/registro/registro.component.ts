@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RegistroService } from '../../servicios/registro.service';
+import { HeaderLogoutComponent } from '../../comun/header-logout/header-logout.component';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [],
+  imports: [HeaderLogoutComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })

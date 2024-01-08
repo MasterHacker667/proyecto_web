@@ -1,11 +1,38 @@
-nav{
-    font-weight: 800;
-    font-size: 20px;
+/* ... [Estilos anteriores] ... */
+
+.navbar {
+    background-color: #f8f9fa; /* Color de fondo */
+    border-bottom: 1px solid #e0e0e0; /* Línea divisoria */
+    padding: 10px 0; /* Espaciado interno */
 }
 
-
-.navbar-nav{
-    width: 100%;
-    background-color: rgb(170, 170, 170);
+.navbar-toggler {
+    border: none; /* Elimina el borde del botón */
+    background-color: transparent; /* Fondo transparente */
+    color: #333; /* Color del ícono */
+    cursor: pointer;
 }
 
+.nav-link {
+    color: #333; /* Color del texto */
+    margin: 0 15px; /* Espaciado entre enlaces */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave */
+    position: relative; /* Para estilos adicionales */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.nav-link:hover {
+    background-color: #e0e0e0; /* Cambio de color al pasar el mouse */
+}
+
+.nav-link.active {
+    font-weight: bold; /* Texto en negrita para el enlace activo */
+}
+
+#carrito img {
+    width: 24px; /* Ancho del ícono del carrito */
+    height: 24px; /* Altura del ícono del carrito */
+    margin-left: 5px; /* Espaciado entre el texto y el ícono */
+}

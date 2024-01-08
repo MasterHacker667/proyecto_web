@@ -6,6 +6,8 @@ import { FooterComponent } from './comun/footer/footer.component';
 import { ContentLogoutComponent } from './content-logout/content-logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './servicios/login.service';
+import { HeaderComponent } from './comun/header/header.component';
+import { BarraNavComponent } from './barra-nav/barra-nav.component';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +16,13 @@ import { LoginService } from './servicios/login.service';
   `,
   standalone: true,
   imports: [CommonModule, RouterOutlet, HeaderLogoutComponent, FooterComponent, ContentLogoutComponent, 
-    HttpClientModule], 
+    HttpClientModule, HeaderComponent, BarraNavComponent], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [LoginService] 
 })
+
 export class AppComponent {
+  login: boolean = false;
 
 }

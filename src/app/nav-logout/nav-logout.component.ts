@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router'
   styleUrl: './nav-logout.component.scss'
 })
 export class NavLogoutComponent {
-  menus : string[] = ["Iniciar Sesión","Registrarse"];
+  menus : string[] = ["Iniciar Sesión","Registrarse", "Principal","Ofertas","Más Vendidos","Cerrar Sesión",""];
 }
 
 

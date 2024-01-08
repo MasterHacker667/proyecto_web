@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   providers: [] 
 })
 export class BarraNavComponent {
-  menus : string[] = ["Principal","Ofertas","Más Vendidos","Cerrar Sesión",""];
+  menus : string[] = ["Principal","Ofertas","Cerrar Sesión",""];
 }
 
 

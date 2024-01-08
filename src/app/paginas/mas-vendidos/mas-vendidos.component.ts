@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MasVendidosService } from '../../servicios/mas-vendidos.service';
+import { HeaderComponent } from '../../comun/header/header.component';
 
 @Component({
   selector: 'app-mas-vendidos',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './mas-vendidos.component.html',
   styleUrl: './mas-vendidos.component.scss'
 })

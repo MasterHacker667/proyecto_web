@@ -1,3 +1,4 @@
+<app-header></app-header>
 <br>
 <h1>Ofertas</h1>
 <br>
@@ -5,12 +6,14 @@
 <div class = "containerP">
     @for(item of lista; track item.id){
 <div class="item">
-    <img src="/assets/producto_demo.png" alt="blog"> <!--cambiar url por la de la imagen correspondiente en la bd -->
+    <img src="{{item.thumbnail}}" class="item img" alt="blog"> <!--cambiar url por la de la imagen correspondiente en la bd -->
     <div class = "info_producto">
-        <h3>Item 1 / Vendedor: Xuu</h3>
+        <h3>{{item.title}} / Vendedor: Xuu</h3>
         <p>Breve Descripcion</p>
-        <p class="precio">$20.00</p>
+        <p class="precio">${{item.price}}.00</p>
+            <button (click)="agregarAlCarrito(item)">Agregar al carrito</button>
+        
     </div>
 </div>
-}
+    }
 </div>

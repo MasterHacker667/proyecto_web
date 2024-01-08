@@ -17,7 +17,9 @@ export const routes: Routes = [
     { path: 'carrito', component: CarritoComponent},
     { path: 'registro', component: RegistroComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'inicio', component: InicioComponent},
+    { path: 'inicio', component: PrincipalComponent},
     { path: 'choose', component: ChooseComponent},
+    { path: '', component: LoginComponent},
+    
 ];
 

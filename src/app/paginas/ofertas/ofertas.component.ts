@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { OfertasService } from '../../servicios/ofertas.service';
+import { HeaderComponent } from '../../comun/header/header.component';
+import { ProductoService } from '../../servicios/producto.service';
 
 @Component({
   selector: 'app-ofertas',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './ofertas.component.html',
   styleUrl: './ofertas.component.scss'
 })
@@ -21,6 +23,10 @@ export class OfertasComponent {
           console.log(result);
         });
       });
+    }
+
+    agregarAlCarrito(lista:DTO_Ofertas){
+      console.log("agregado al carrito:" + lista.title);
     }
   }
 /*

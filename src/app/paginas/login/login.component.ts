@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { LoginService } from '../../servicios/login.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HeaderLogoutComponent } from '../../comun/header-logout/header-logout.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, HeaderLogoutComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
