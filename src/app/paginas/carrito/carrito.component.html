@@ -1,2 +1,13 @@
-<br>
-<h1>Carrito</h1>
+<div>
+    @for ( item of lista; track item.id) {
+    <div>
+        <p>{{ item.title }}</p>
+        <img src="{{item.thumbnail}}" alt="blog">
+        <p>Precio: {{ item.price}}</p>
+        <button class="btn" (click)="eliminarProducto(item.id)">Eliminar</button>
+    <br> <br> <br>
+    </div>
+    }
+
+    <button class="btn" (click)="paginaPago()">Pagar</button>
+</div>

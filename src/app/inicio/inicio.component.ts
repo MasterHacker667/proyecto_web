@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [HeaderComponent,ContentComponent,FooterComponent,HttpClientModule,CommonModule, RouterOutlet],
+  imports: [HeaderComponent,ContentComponent,FooterComponent,HttpClientModule,CommonModule,RouterOutlet],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.scss',
   providers: [HttpClientModule] 

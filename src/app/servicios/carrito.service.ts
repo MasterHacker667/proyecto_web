@@ -1,24 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { DTO_Producto } from '../paginas/principal/principal.component';
+import { BehaviorSubject } from 'rxjs';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoService {
-  public lista: DTO_Producto[] = [];
 
-  addToCart(product: DTO_Producto) {
-    this.lista.push(product);
+  constructor(private http: HttpClient) { }
+
+  private productos: any[] = [];
+  private productosSubject = new BehaviorSubject<any[]>([]);
+
+  addToCart(product: DTO_Producto):Observable<any> {
+    return this.http.post("https://dummyjson.com/products/add", JSON.stringify(product));
   }
 
-  getItems() {
-    return this.lista;
+  getItems():Observable<any> {
+    return this.http.get("https://dummyjson.com/products");
   }
 
-  clearCart() {
-    this.lista = [];
-    return this.lista;
+  // eliminarProducto(index: number) {
+  //   const url = https://dummyjson.com/products/delete/${index};
+  //   return this.http.delete(url);
+  // }
+  eliminarProducto(index: number) {
+    this.productos.splice(index, 1);
+    this.productosSubject.next([...this.productos]);
   }
 
-  constructor() { }
 }

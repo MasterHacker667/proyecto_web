@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RegistroService } from '../../servicios/registro.service';
+import { RegistroVendedorService } from '../../servicios/vendedor-registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,14 +8,14 @@ import { RegistroService } from '../../servicios/registro.service';
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })
-export class RegistroComponent {
+export class VendedorRegistroComponent {
   nombre: string = '';
   apellido: string = '';
   correo: string = '';
   username: string = '';
   password: string = '';
 
-  constructor(private registroService: RegistroService) {}
+  constructor(private vendedorRegistroService: RegistroVendedorService) {}
 
   registrarUsuario() {
     const nuevoUsuario = {
@@ -26,7 +26,7 @@ export class RegistroComponent {
       password: this.password,
     };
 
-    this.registroService.registrarUsuario(nuevoUsuario).subscribe(
+    this.vendedorRegistroService.registrarUsuario(nuevoUsuario).subscribe(
       (response) => {
         console.log('Usuario registrado exitosamente:', response);
         // Aquí puedes redirigir a otra página, mostrar un mensaje, etc.
